@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClauseGuard — Offline Contract Risk Auditor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased">
+
+  <!-- Top Navbar -->
+  <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-lg bg-emerald-500/15 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold text-lg">
+          CG
+        </div>
+        <div>
+          <h1 class="text-lg font-bold tracking-tight text-white">ClauseGuard</h1>
+          <p class="text-xs text-slate-400">Deterministic Offline Contract Risk Engine</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 text-xs">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-medium">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          Offline Engine Ready
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Workspace -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+      <!-- Left Panel: Contract Input -->
+      <section class="lg:col-span-5 flex flex-col gap-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col gap-4 shadow-lg">
+          <div class="flex items-center justify-between">
+            <h2 class="text-sm font-semibold uppercase tracking-wider text-slate-300">Contract Text</h2>
+            <div class="flex gap-2">
+              <button
+                onclick="loadSample('predatory_loan')"
+                class="text-xs px-2.5 py-1 rounded-md bg-rose-500/15 text-rose-300 border border-rose-500/30 hover:bg-rose-500/25 transition"
+              >
+                Load Risky Sample
+              </button>
+              <button
+                onclick="loadSample('fair_loan')"
+                class="text-xs px-2.5 py-1 rounded-md bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/25 transition"
+              >
+                Load Fair Sample
+              </button>
+            </div>
+          </div>
+
+          <textarea
+            id="contractInput"
+            rows="15"
+            placeholder="Paste loan agreement, terms of service, or contract clauses here..."
+            class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3.5 text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition leading-relaxed"
+          ></textarea>
+
+          <div class="flex items-center justify-between gap-3">
+            <button
+              onclick="clearAll()"
+              class="px-4 py-2.5 rounded-lg text-sm font-medium
+              
